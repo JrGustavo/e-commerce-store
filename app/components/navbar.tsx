@@ -1,25 +1,39 @@
-import Link from "next/link";
-import Container from "@/app/components/ui/container";
-import MainNav from "@/app/components/main-nav";
-import getCategories from "@/actions/get-categories";
+"use client";
+
+import { ShoppingBag } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
+import Button from "@/app/components/ui/button";
 
 
-const Navbar = async () => {
-    const categories = await getCategories();
+const NavbarActions = () => {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    const router = useRouter();
+
+
+    if (!isMounted) {
+        return null;
+    }
 
     return (
-        <div className="border-b">
-            <Container>
-                <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center">
-                    <Link href="/" className="ml-4 flex lg:ml-0 gap-x-2">
-                        <p className="font-bold text-xl">Petal Flores</p>
-                    </Link>
-                 <MainNav data={categories}/>
-                    <NavbarActions/>
-                </div>
-            </Container>
+        <div className="ml-auto flex items-center gap-x-4">
+            <Button onClick={() => router.push('/cart')} className="flex items-center rounded-full bg-black px-4 py-2">
+                <ShoppingBag
+                    size={20}
+                    color="white"
+                />
+                <span className="ml-2 text-sm font-medium text-white">
+
+        </span>
+            </Button>
         </div>
     );
-};
+}
 
-export default Navbar;
+export default NavbarActions;
