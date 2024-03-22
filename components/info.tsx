@@ -1,9 +1,9 @@
 "use client"
 
 import {Product} from "@/types";
-import Currency from "@/app/components/ui/currency";
-import Button from "@/app/components/ui/button";
 import {ShoppingCart} from "lucide-react";
+import Currency from "@/components/ui/currency";
+import Button from "@/components/ui/button";
 
 
 interface InfoProps {

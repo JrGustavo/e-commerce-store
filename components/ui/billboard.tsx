@@ -1,12 +1,13 @@
-import { billboard } from "@/types";
+import {billboard} from "@/types";
+
 
 interface BillboardProps {
     data: billboard;
 }
 
 const Billboard: React.FC<BillboardProps> = ({
-  data
-   }) => {
+                                                 data
+                                             }) => {
     console
     return (
         <div className="p-4 sm:p-6 lg:p-8 rounded-xl overflow-hidden">
